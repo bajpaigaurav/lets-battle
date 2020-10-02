@@ -11,8 +11,9 @@ class Hello extends React.Component {
                 {this.props.name}
                 {this.props.lastName} 
                 { this.props.header}
-                {this.props.someMethod()}
-                {this.props.someboolean}
+                
+                {this.props.someboolean === true ?
+                <button onClick={this.props.someMethod}> Click Me!</button> : null}
             </h2>
         )
     }
