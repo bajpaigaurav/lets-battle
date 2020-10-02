@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM, { render } from 'react-dom'
+import Battle from './components/battle'
 import Popular from './components/popular'
 import Hello from './Hello'
 import './index.css'
@@ -46,8 +47,9 @@ export default class App extends React.Component {
             //   />
             //     <List/>
             // </React.Fragment>
-
-            <Popular />
+            <div className='container'>
+            <Battle />
+            </div>
                  
             
         )
