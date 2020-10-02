@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM, { render } from 'react-dom'
+import Popular from './components/popular'
 import Hello from './Hello'
 import './index.css'
 import List from './List'
@@ -27,24 +28,26 @@ export default class App extends React.Component {
 // React.fragment can be an alternative
         return (
             // adding prop name
-            <React.Fragment>
-                <Hello 
-                    name='Gaurav'
-                    lastName='Bajpai'
-                    someboolean = {true}
-                    someMethod = { () => alert('some message !')}
-                    header= { <h1> some html</h1>}
-                 />
+            // <React.Fragment>
+            //     <Hello 
+            //         name='Gaurav'
+            //         lastName='Bajpai'
+            //         someboolean = {true}
+            //         someMethod = { () => alert('some message !')}
+            //         header= { <h1> some html</h1>}
+            //      />
 
-                 <Hello 
-                 name='Gaurav'
-                 lastName='Bajpai'
-                 someboolean = {true}
-                 someMethod = { () => alert('some message !')}
-                 header= { <h1> some html</h1>}
-              />
-                <List/>
-            </React.Fragment>
+            //      <Hello 
+            //      name='Gaurav'
+            //      lastName='Bajpai'
+            //      someboolean = {true}
+            //      someMethod = { () => alert('some message !')}
+            //      header= { <h1> some html</h1>}
+            //   />
+            //     <List/>
+            // </React.Fragment>
+
+            <Popular />
                  
             
         )
