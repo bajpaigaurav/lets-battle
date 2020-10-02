@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM, { render } from 'react-dom'
 import Hello from './Hello'
 import './index.css'
+import List from './List'
 
 
 // Component 
@@ -42,6 +43,7 @@ export default class App extends React.Component {
                  someMethod = { () => alert('some message !')}
                  header= { <h1> some html</h1>}
               />
+                <List/>
             </React.Fragment>
                  
             
