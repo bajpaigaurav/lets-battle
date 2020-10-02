@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM, { render } from 'react-dom'
+import Hello from './Hello'
 import './index.css'
 
 
@@ -24,11 +25,9 @@ export default class App extends React.Component {
 // if we dont want to wrap all the enements inside a parent div
 // React.fragment can be an alternative
         return (
-            <React.Fragment>
-                <h1> Hello, {name} </h1>
-                <h1> today is {new Date().toLocaleString()} </h1>
-                <p> what is 2 + 2 {2 + 2}</p>
-            </React.Fragment>
+            
+                <Hello />
+            
         )
     }
 
