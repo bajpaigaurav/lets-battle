@@ -31,7 +31,7 @@ export default class List extends React.Component {
         return (
             <ul>
                 {list.map((e) => (
-                    <li id={e.id}>
+                    <li key={e.id}>
                         {e.value}
                     </li>
                 ))}
