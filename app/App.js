@@ -26,7 +26,7 @@ export default class App extends React.Component {
 // React.fragment can be an alternative
         return (
             // adding prop name
-                <Hello name='Gaurav' />
+                <Hello name='Gaurav' lastName='Bajpai' />
             
         )
     }

@@ -7,7 +7,7 @@ class Hello extends React.Component {
         console.log(this.props)
         return (
             <h2>
-                Hello, {this.props.name}
+                Hello, {this.props.name} {this.props.lastName}
             </h2>
         )
     }
