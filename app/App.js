@@ -25,8 +25,8 @@ export default class App extends React.Component {
 // if we dont want to wrap all the enements inside a parent div
 // React.fragment can be an alternative
         return (
-            
-                <Hello />
+            // adding prop name
+                <Hello name='Gaurav' />
             
         )
     }
