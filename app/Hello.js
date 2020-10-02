@@ -7,7 +7,12 @@ class Hello extends React.Component {
         console.log(this.props)
         return (
             <h2>
-                Hello, {this.props.name} {this.props.lastName}
+                Hello, 
+                {this.props.name}
+                {this.props.lastName} 
+                { this.props.header}
+                {this.props.someMethod()}
+                {this.props.someboolean}
             </h2>
         )
     }

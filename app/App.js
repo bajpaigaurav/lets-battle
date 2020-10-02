@@ -26,7 +26,13 @@ export default class App extends React.Component {
 // React.fragment can be an alternative
         return (
             // adding prop name
-                <Hello name='Gaurav' lastName='Bajpai' />
+                <Hello 
+                    name='Gaurav'
+                    lastName='Bajpai'
+                    someboolean = {true}
+                    someMethod = { () => alert('some message !')}
+                    header= { <h1> some html</h1>}
+                 />
             
         )
     }
