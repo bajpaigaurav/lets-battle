@@ -20,32 +20,16 @@ export default class App extends React.Component {
 
     render() {
 
-        const auth = isAuth()
 
+// if we dont want to wrap all the enements inside a parent div
+// React.fragment can be an alternative
         return (
-
-            <div>
-                <h1>
-                    Future portal
-                </h1>
-                { auth === true ? 
-                <h1>
-                    welcome back !
-                </h1>
-                :
-                <h1> Login to see details</h1>
-                }
-            </div>
+            <React.Fragment>
+                <h1> Hello, {name} </h1>
+                <h1> today is {new Date().toLocaleString()} </h1>
+                <p> what is 2 + 2 {2 + 2}</p>
+            </React.Fragment>
         )
-
-
-        // return (
-        //     <div>
-        //         <h1> Hello, {name} </h1>
-        //         <h1> today is {new Date().toLocaleString()} </h1>
-        //         <p> what is 2 + 2 {2 + 2}</p>
-        //     </div>
-        // )
     }
 
 }
