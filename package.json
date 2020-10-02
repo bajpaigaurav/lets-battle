@@ -4,7 +4,8 @@
   "description": "",
   "main": "App.js",
   "scripts": {
-    "build": "webpack-dev-server"
+    "build": "webpack",
+    "start": "webpack-dev-server"
   },
   "babel": {
     "presets": [
