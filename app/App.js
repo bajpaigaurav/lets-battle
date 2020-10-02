@@ -26,6 +26,7 @@ export default class App extends React.Component {
 // React.fragment can be an alternative
         return (
             // adding prop name
+            <React.Fragment>
                 <Hello 
                     name='Gaurav'
                     lastName='Bajpai'
@@ -33,12 +34,22 @@ export default class App extends React.Component {
                     someMethod = { () => alert('some message !')}
                     header= { <h1> some html</h1>}
                  />
+
+                 <Hello 
+                 name='Gaurav'
+                 lastName='Bajpai'
+                 someboolean = {true}
+                 someMethod = { () => alert('some message !')}
+                 header= { <h1> some html</h1>}
+              />
+            </React.Fragment>
+                 
             
         )
     }
 
 }
 ReactDOM.render(
-    <App />,
+    <App/>,
     document.getElementById('app')
 )
