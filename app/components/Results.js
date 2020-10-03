@@ -3,6 +3,43 @@ import { battle } from '../utils/api'
 import { FaCompass, FaBriefcase, FaUsers, FaUserFriends, FaUser } from 'react-icons/fa'
 import Card from './card'
 
+import PropTypes from 'prop-types'
+
+
+function ProfileList(profile) {
+
+    return (
+        <ul className='card-list'>
+            <li>
+                <FaUser color='rgb(239,115,115)' size={22} />
+                {profile.profile.name}
+            </li>
+            <li>
+                <FaCompass color='rgb(114,115,255)' size={22} />
+                {profile.profile.location}
+            </li>
+            <li>
+                <FaBriefcase color='#795548' size={22} />
+                {profile.profile.company}
+            </li>
+            <li>
+                <FaUsers color='rgb(129,195, 245)' size={22} />
+                {profile.profile.followers.toLocaleString()} followers
+                </li>
+            <li>
+                <FaUserFriends color='rgb(64,183,95)' size={22} />
+                {profile.profile.following.toLocaleString()} following
+                </li>
+        </ul>
+    )
+}
+
+ProfileList.propType = {
+    profile: PropTypes.object.isRequired
+}
+
+
+
 export default class Results extends React.Component {
 
     constructor(props) {
@@ -52,79 +89,48 @@ export default class Results extends React.Component {
 
         if (!loading) {
             return (
-                <div className='grid space-around container-sm'>
 
-                    <Card
-                        href={winner.profile.html_url}
-                        avatar={winner.profile.avatar_url}
-                        subheader={`Score : ${winner.score.toLocaleString()}`}
-                        header={winner.score === loser.score ? 'Tie' : 'Winner'}
-                        name={winner.profile.login}
-                    >
+                <React.Fragment>
+                    <div className='grid space-around container-sm'>
 
-                        <ul className='card-list'>
-                            <li>
-                                <FaUser color='rgb(239,115,115)' size={22} />
-                                {winner.profile.name}
-                            </li>
-                            <li>
-                                <FaCompass color='rgb(114,115,255)' size={22} />
-                                {winner.profile.location}
-                            </li>
-                            <li>
-                                <FaBriefcase color='#795548' size={22} />
-                                {winner.profile.company}
-                            </li>
-                            <li>
-                                <FaUsers color='rgb(129,195, 245)' size={22} />
-                                {winner.profile.followers.toLocaleString()} followers
-                            </li>
-                            <li>
-                                <FaUserFriends color='rgb(64,183,95)' size={22} />
-                                {winner.profile.following.toLocaleString()} following
-                            </li>
-                        </ul>
-
-                    </Card>
+                        <Card
+                            href={winner.profile.html_url}
+                            avatar={winner.profile.avatar_url}
+                            subheader={`Score : ${winner.score.toLocaleString()}`}
+                            header={winner.score === loser.score ? 'Tie' : 'Winner'}
+                            name={winner.profile.login}
+                        >
+                            <ProfileList profile={winner.profile} />
+                        </Card>
 
 
 
-                    <Card
-                        href={loser.profile.html_url}
-                        avatar={loser.profile.avatar_url}
-                        subheader={`Score : ${loser.score.toLocaleString()}`}
-                        header={winner.score === loser.score ? 'Tie' : 'Winner'}
-                        name={loser.profile.login}
-                    >
+                        <Card
+                            href={loser.profile.html_url}
+                            avatar={loser.profile.avatar_url}
+                            subheader={`Score : ${loser.score.toLocaleString()}`}
+                            header={winner.score === loser.score ? 'Tie' : 'Winner'}
+                            name={loser.profile.login}
+                        >
+                            <ProfileList profile={loser.profile} />
+                        </Card>
 
-                        <ul className='card-list'>
-                            <li>
-                                <FaUser color='rgb(239,115,115)' size={22} />
-                                {loser.profile.name}
-                            </li>
-                            <li>
-                                <FaCompass color='rgb(114,115,255)' size={22} />
-                                {loser.profile.location}
-                            </li>
-                            <li>
-                                <FaBriefcase color='#795548' size={22} />
-                                {loser.profile.company}
-                            </li>
-                            <li>
-                                <FaUsers color='rgb(129,195, 245)' size={22} />
-                                {loser.profile.followers.toLocaleString()} followers
-                            </li>
-                            <li>
-                                <FaUserFriends color='rgb(64,183,95)' size={22} />
-                                {loser.profile.following.toLocaleString()} following
-                            </li>
-                        </ul>
 
-                    </Card>
+                    </div>
 
-                </div>
+                    <button onClick={this.props.onReset}
+                        className='btn dark-btn btn-space'>
+                        Reset
+                    </button>
+                </React.Fragment>
             )
         }
 
     }
+}
+
+Results.propType = {
+    playerOne: PropTypes.object.isRequired,
+    playerTwo: PropTypes.object.isRequired,
+    isReset: PropTypes.func.isRequired
 }
