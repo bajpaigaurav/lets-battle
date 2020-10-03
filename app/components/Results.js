@@ -4,6 +4,7 @@ import { FaCompass, FaBriefcase, FaUsers, FaUserFriends, FaUser } from 'react-ic
 import Card from './card'
 
 import PropTypes from 'prop-types'
+import Loading from './Loading'
 
 
 function ProfileList(profile) {
@@ -84,7 +85,7 @@ export default class Results extends React.Component {
         }
 
         if (loading === true) {
-            return <p >Loading</p>
+            return <Loading ></Loading>
         }
 
         if (!loading) {
