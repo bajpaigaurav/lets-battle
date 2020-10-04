@@ -23,10 +23,10 @@ module.exports = {
         new HtmlWebpackPlugin( {
             template: 'app/index.html'
         }),
-
-    new CopyPlugin([
-        { from : '404.html' }
-      ])
+    new CopyPlugin({
+        patterns: [
+        { from : './app/404.html' }
+      ]})
     ],
     devServer: {
         historyApiFallback: true

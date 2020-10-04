@@ -63,7 +63,9 @@ export default class App extends React.Component {
             //   />
             //     <List/>
             // </React.Fragment>
-            <Router >
+            
+            <Router basename='/lets-battle'>
+                
                 <ThemeProvider value={this.state}>
                     <div  className={this.state.theme}>
                         <div className='container'>
