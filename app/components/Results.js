@@ -6,7 +6,8 @@ import Card from './card'
 import PropTypes from 'prop-types'
 import Loading from './Loading'
 import ToolTip from './ToolTip'
-
+import queryString from 'query-string'
+import { Link } from 'react-router-dom'
 
 function ProfileList({profile}) {
 
@@ -60,7 +61,7 @@ export default class Results extends React.Component {
     }
 
     componentDidMount() {
-        const { playerOne, playerTwo } = this.props
+        const { playerOne, playerTwo } = queryString.parse(this.props.location.search)
 
 
 
@@ -115,7 +116,7 @@ export default class Results extends React.Component {
                             href={loser.profile.html_url}
                             avatar={loser.profile.avatar_url}
                             subheader={`Score : ${loser.score.toLocaleString()}`}
-                            header={winner.score === loser.score ? 'Tie' : 'Winner'}
+                            header={winner.score === loser.score ? 'Tie' : 'Loser'}
                             name={loser.profile.login}
                         >
                             <ProfileList profile={loser.profile} />
@@ -124,10 +125,10 @@ export default class Results extends React.Component {
 
                     </div>
 
-                    <button onClick={this.props.onReset}
-                        className='btn dark-btn btn-space'>
-                        Reset
-                    </button>
+                    <Link className='btn dark-btn btn-space' to='/battle'>
+                    Reset
+                    </Link>
+                    
                 </React.Fragment>
             )
         }
@@ -135,8 +136,3 @@ export default class Results extends React.Component {
     }
 }
 
-Results.propType = {
-    playerOne: PropTypes.object.isRequired,
-    playerTwo: PropTypes.object.isRequired,
-    isReset: PropTypes.func.isRequired
-}
