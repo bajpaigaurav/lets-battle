@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import withHover from './withHover'
 
 
 
@@ -69,23 +68,19 @@ const styles = {
 
 // }
 
-function ToolTip ({text, children, hovering}) {
-
-    return (
+export default function Tooltip ({ text, children }) {
+  return (
+    <Hover>
+      {(hovering) => (
         <div style={styles.container}>
-            {   hovering === true && 
-                    <div style={styles.tooltip}> {text}</div>
-            }
-            {children}
+          {hovering === true && <div style={styles.tooltip}>{text}</div>}
+          {children}
         </div>
-    )
+      )}
+    </Hover>
+  )
 }
 
-
-
-ToolTip.propTypes = {
-    text: PropTypes.string.isRequired,
-    hovering: PropTypes.bool.isRequired
+Tooltip.propTypes = {
+  text: PropTypes.string.isRequired,
 }
-
-export default withHover(ToolTip, 'hovering') 
