@@ -6,6 +6,7 @@ import Popular from './components/popular'
 import { ThemeProvider } from './context/theme'
 import './index.css'
 import List from './List'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
 // Component 
@@ -61,15 +62,18 @@ export default class App extends React.Component {
             //   />
             //     <List/>
             // </React.Fragment>
-            <ThemeProvider value={this.state}>
-                <div  className={this.state.theme}>
-                    <div className='container'>
-                        <NavBar></NavBar>
-                        <Popular />
+            <Router >
+                <ThemeProvider value={this.state}>
+                    <div  className={this.state.theme}>
+                        <div className='container'>
+                            <NavBar></NavBar>
+                            <Route exact path='/' component={Popular} />
+                            <Route  path='/battle' component={Battle} />
+                        </div>
                     </div>
-                </div>
-                
-            </ThemeProvider>
+                    
+                </ThemeProvider>
+            </Router>
                  
             
         )
