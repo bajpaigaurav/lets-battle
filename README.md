@@ -1,4 +1,4 @@
-# githubBattle
+# Lets - Battle
 
 React The Hard Way
 
