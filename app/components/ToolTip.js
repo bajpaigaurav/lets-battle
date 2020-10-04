@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import withHover from './withHover'
 
 
 
@@ -25,49 +26,66 @@ const styles = {
     }
   }
 
-export default class ToolTip extends React.Component {
+// export default class ToolTip extends React.Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            hoveringLocation: false,
-            hoveringCompany: false,
-        }
+//     constructor(props) {
+//         super(props)
+//         this.state = {
+//             hoveringLocation: false,
+//             hoveringCompany: false,
+//         }
 
-        this.mouseOver = this.mouseOver.bind(this)
-        this.mouseOut = this.mouseOut.bind(this)
-    }
+//         this.mouseOver = this.mouseOver.bind(this)
+//         this.mouseOut = this.mouseOut.bind(this)
+//     }
 
-    mouseOver(id) {
-        this.setState({
-            hovering: true
-        })
-    }
+//     mouseOver(id) {
+//         this.setState({
+//             hovering: true
+//         })
+//     }
 
-    mouseOut(id) {
-        // console.log('mouse out')
-        this.setState({
-            hovering: false
-        })
-        // console.log(this.state)
-    }
+//     mouseOut(id) {
+//         // console.log('mouse out')
+//         this.setState({
+//             hovering: false
+//         })
+//         // console.log(this.state)
+//     }
 
-    render() {
+//     render() {
 
-        const { text,children } = this.props
-        const { hovering } = this.state
-        return (
-            <div onMouseOver={this.mouseOver} 
-            onMouseOut={this.mouseOut} 
-            style={styles.container}>
-                {hovering === true && <div style={styles.tooltip}> {text}</div>}
-                {children}
-            </div>
-        )
-    }
+//         const { text,children } = this.props
+//         const { hovering } = this.state
+//         return (
+//             <div onMouseOver={this.mouseOver} 
+//             onMouseOut={this.mouseOut} 
+//             style={styles.container}>
+//                 {hovering === true && <div style={styles.tooltip}> {text}</div>}
+//                 {children}
+//             </div>
+//         )
+//     }
 
+// }
+
+function ToolTip ({text, children, hovering}) {
+
+    return (
+        <div style={styles.container}>
+            {   hovering === true && 
+                    <div style={styles.tooltip}> {text}</div>
+            }
+            {children}
+        </div>
+    )
 }
+
+
 
 ToolTip.propTypes = {
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    hovering: PropTypes.bool.isRequired
 }
+
+export default withHover(ToolTip, 'hovering') 
