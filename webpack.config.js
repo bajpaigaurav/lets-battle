@@ -6,7 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 module.exports = {
     entry: './app/App.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
         publicPath: '/'
     },
@@ -21,14 +21,16 @@ module.exports = {
     mode: process.env.NODE_ENV === 'production'?'production':'development',
     plugins: [
         new HtmlWebpackPlugin( {
-            template: 'app/index.html'
+            template: 'index.html'
         }),
     new CopyPlugin({
         patterns: [
-        { from : './app/404.html' }
+        // { from : '404.html' },
+        // { from : 'favicon.ico' },
+        { from : '_redirects' }
       ]})
     ],
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: true,
     }
 }
