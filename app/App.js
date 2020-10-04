@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM, { render } from 'react-dom'
 import Battle from './components/battle'
 import Popular from './components/popular'
-import Hello from './Hello'
+import { ThemeProvider } from './context/theme'
 import './index.css'
 import List from './List'
 
@@ -12,15 +12,28 @@ import List from './List'
 // Lifecycle
 // UI
 
-function isAuth () {
-    return false
-}
+// function isAuth () {
+//     return false
+// }
 
-function isNew () {
-    return true
-}
+// function isNew () {
+//     return true
+// }
 
 export default class App extends React.Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            theme: 'light',
+            toggleTheme: () => {
+                this.setState(({theme})=> ({
+                    theme: theme === 'light' ? 'dark' : 'light'
+                }))
+            }
+        }
+    }
 
     render() {
 
@@ -47,9 +60,11 @@ export default class App extends React.Component {
             //   />
             //     <List/>
             // </React.Fragment>
-            <div className='container'>
-            <Battle />
-            </div>
+            <ThemeProvider value={this.state}>
+                <div className='container'>
+                <Battle />
+                </div>
+            </ThemeProvider>
                  
             
         )
