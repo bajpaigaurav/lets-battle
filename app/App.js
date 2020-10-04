@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM, { render } from 'react-dom'
 import Battle from './components/battle'
+import NavBar from './components/NavBar'
 import Popular from './components/popular'
 import { ThemeProvider } from './context/theme'
 import './index.css'
@@ -61,9 +62,13 @@ export default class App extends React.Component {
             //     <List/>
             // </React.Fragment>
             <ThemeProvider value={this.state}>
-                <div className='container'>
-                <Battle />
+                <div  className={this.state.theme}>
+                    <div className='container'>
+                        <NavBar></NavBar>
+                        <Battle />
+                    </div>
                 </div>
+                
             </ThemeProvider>
                  
             
