@@ -7,6 +7,7 @@ import { ThemeProvider } from './context/theme'
 import './index.css'
 import List from './List'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Results from './components/Results'
 
 
 // Component 
@@ -68,7 +69,8 @@ export default class App extends React.Component {
                         <div className='container'>
                             <NavBar></NavBar>
                             <Route exact path='/' component={Popular} />
-                            <Route  path='/battle' component={Battle} />
+                            <Route exact path='/battle' component={Battle} />
+                            <Route path='/battle/results' component={Results}></Route>
                         </div>
                     </div>
                     
