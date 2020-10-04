@@ -65,7 +65,7 @@ export default class App extends React.Component {
                 <div  className={this.state.theme}>
                     <div className='container'>
                         <NavBar></NavBar>
-                        <Battle />
+                        <Popular />
                     </div>
                 </div>
                 
